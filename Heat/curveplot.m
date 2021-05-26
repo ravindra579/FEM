@@ -1,0 +1,67 @@
+function curveplot(X,Y,z,Kstress,a,n1,n2)
+i=1;
+iii=1;
+while i<z-n1-1
+x1=[];
+y1=[];
+ur1=[];
+ii=1;
+x1(ii)=X(i);
+y1(ii)=Y(i);
+ur1(ii)=Kstress(a,i);
+ii=ii+1;
+x1(ii)=X(i+1);
+y1(ii)=Y(i+1);
+ur1(ii)=Kstress(a,i+1);
+ii=ii+1;
+x1(ii)=X(i+n1+1);
+y1(ii)=Y(i+n1+1);
+ur1(ii)=Kstress(a,i+n1+1);
+ii=ii+1;
+x1(ii)=X(i);
+y1(ii)=Y(i);
+ur1(ii)=Kstress(a,i);
+fill(x1,y1,ur1);
+hold on;
+if(iii==n1)
+    i=i+2;
+    iii=1;
+else
+    i=i+1;
+    iii=iii+1;
+end
+end
+iii=1;
+i=2;
+while i<z-n1
+x1=[];
+y1=[];
+ur1=[];
+ii=1;
+x1(ii)=X(i);
+y1(ii)=Y(i);
+ur1(ii)=Kstress(a,i);
+ii=ii+1;
+x1(ii)=X(i+n1);
+y1(ii)=Y(i+n1);
+ur1(ii)=Kstress(a,i+n1);
+ii=ii+1;
+x1(ii)=X(i+n1+1);
+y1(ii)=Y(i+n1+1);
+ur1(ii)=Kstress(a,i+n1+1);
+ii=ii+1;
+x1(ii)=X(i);
+y1(ii)=Y(i);
+ur1(ii)=Kstress(a,i);
+fill(x1,y1,ur1);
+if(iii==n1)
+    i=i+2;
+    iii=1;
+else
+    i=i+1;
+    iii=iii+1;
+end
+end
+axis off;
+colorbar
+end
